@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  img-service:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - ALLOWED_ORIGINS=${CORS_ORIGIN}
+    volumes:
+      - ./icons:/app/icons
+    restart: always
