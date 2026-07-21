@@ -101,6 +101,11 @@ app.get('/icons/:filename', (req: Request<{ filename: string }>, res: Response):
   }
 });
 
+// ヘルスチェック API
+app.get('/health', (_req: Request, res: Response): void => {
+  res.status(200).json({ status: 'ok' });
+});
+
 // Multer エラーハンドリング
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof multer.MulterError) {
